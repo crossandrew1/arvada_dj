@@ -47,7 +47,7 @@ if (! isMobileDevice()) {
 }
 
 
-map.getView().fit([-11718813.433208, 4834111.577271, -11689450.943048, 4849416.786264], map.getSize());
+map.getView().fit([-11705152.968, 4813787.903, -11626731.105, 4860468.059], map.getSize());
 
 var NO_POPUP = 0
 var ALL_FIELDS = 1

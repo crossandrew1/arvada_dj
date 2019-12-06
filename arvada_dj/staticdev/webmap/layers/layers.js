@@ -1,6 +1,18 @@
 /*
 https://riverproject.co:8443/geoserver/arvada_swmp/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=arvada_swmp:mp_question&outputFormat=application/json&srsname=EPSG:3857
 */
+
+var website = 'https://firstcreekmdp.com:8443/geoserver/arvada_swmp/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName='
+var website_end='&outputFormat=application/json&srsname=EPSG:3857'
+
+
+
+var basin='arvada_swmp:mp_watersheds'
+var questions='arvada_swmp:mp_question'
+
+
+
+
 var wms_layers = [];
 
 ///////////////////////////////////////////
@@ -10,9 +22,7 @@ var questionSource = new ol.source.Vector({
     attributions: '<a href=""></a>',
     format: new ol.format.GeoJSON(),
     url: function(extent) {
-        return 'https://riverproject.co:8443/geoserver/arvada_swmp/wfs?service=WFS&version=1.1.0&' +
-             'request=GetFeature&typeName=arvada_swmp:mp_question&outputFormat=' +
-             'application/json&srsname=EPSG:3857'
+        return website+questions+website_end
         },
     crossOrigin: 'anonymous',
 });
@@ -692,9 +702,7 @@ var jsonSource_MajorOutfallBasins_0 = new ol.source.Vector({
     attributions: '<a href=""></a>',
     format: new ol.format.GeoJSON(),
     url: function(extent) {
-        return 'https://riverproject.co:8443/geoserver/arvada_swmp/wfs?service=WFS&version=1.1.0&' +
-             'request=GetFeature&typeName=arvada_swmp:mp_watersheds&outputFormat=' +
-             'application/json&srsname=EPSG:3857'
+        return website+basin+website_end
         },
     crossOrigin: 'anonymous',
 });
