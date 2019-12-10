@@ -47,7 +47,7 @@ if (! isMobileDevice()) {
 }
 
 
-map.getView().fit([-11705152.968, 4813787.903, -11626731.105, 4860468.059], map.getSize());
+map.getView().fit([-11695756.15, 4808531.914, -11624001.007, 4863697.649], map.getSize());
 
 var NO_POPUP = 0
 var ALL_FIELDS = 1
@@ -600,18 +600,9 @@ if (!superMap) {
     }   
     ol_popup_content.innerHTML = 
     `<h3> Welcome! </h3>
-     <p> Responses can now be directly added to comments, questions and assumptions. 
-     Icons now change color to indicate status. Light colored icons 
-     (<img style="height: 16px" src="/static/webmap/styles/legend/35px_comment_bubble.png">/
-     <img style="height: 16px" src="/static/webmap/styles/legend/question-24.png">/
-    <img style="height: 16px" src="/static/webmap/styles/legend/flag-24.png">) indicate items that have
-    not been responded to, or that need more information. Dark colored icons
-     (<img style="height: 16px" src="/static/webmap/styles/legend/35px_comment_bubble_dark.png">/
-     <img style="height: 16px" src="/static/webmap/styles/legend/question-24-dark.png">/
-    <img style="height: 16px" src="/static/webmap/styles/legend/flag-24_dark.png">) indicate items that 
-    have been responded to.</p>
-    <p><b>Update (10/24/19):</b> Subcatchments can be viewed by turning on the 
-    <i>Subcatchment</i> layer. </p>
+     <p> Welcome to the First Creek Major Drainage Plan website. 
+     Data can be turned on or off by toggling the gray boxs in the legend off to the right. Comments can 
+    made by clicking on the message icon to the left and then clicking on the map.</p> 
     <h4>Thank you,</h4> 
     <h4>Your RESPEC Team</h4> `
     ol_popup_container.style.display = 'block';        

@@ -10,9 +10,9 @@
                                          color: 'rgba(200, 19 ,200, 1.0)',
                                          lineDash: null, lineCap: 'square',
                                          lineDash: [5,10], 
-                                         lineJoin: 'bevel', width: 4}),
+                                         lineJoin: 'bevel', width: 2}),
 
-        stroke: new ol.style.Stroke({color: 'rgba(200,19,200,1.0)', lineDash: [5,10], lineCap: 'round', lineJoin: 'round', width: 4}),
+        stroke: new ol.style.Stroke({color: 'rgba(200,19,200,1.0)', lineDash: [5,10], lineCap: 'round', lineJoin: 'round', width: 2}),
                  text: new ol.style.Text({
                                          text: labelText,
                                          font: "bold 15.0px \'.SF NS Text\', sans-serif",

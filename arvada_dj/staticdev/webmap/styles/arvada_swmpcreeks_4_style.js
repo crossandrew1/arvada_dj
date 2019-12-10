@@ -1,8 +1,8 @@
  var creekStyle = function(feature, resolution) {
      var labelText = "";
  
-     if (feature.get("NAME") !== null) {
-         labelText = String(feature.get("NAME"));
+     if (feature.get("name") !== null) {
+         labelText = String(feature.get("name"));
      }
  
      return [new ol.style.Style({

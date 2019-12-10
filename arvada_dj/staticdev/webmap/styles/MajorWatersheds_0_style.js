@@ -7,7 +7,7 @@ function categories_MajorWatersheds_0(feature, value, size, resolution, labelTex
     // Transparency for fill
     var trans = '0.3';
     switch (value.toString()) {
-        case 'Clear Creek':
+        case 'First Creek':
             var style = [new ol.style.Style({
                 stroke: new ol.style.Stroke({
                     color: 'rgba(35,35,35,1.0)',
@@ -26,7 +26,7 @@ function categories_MajorWatersheds_0(feature, value, size, resolution, labelTex
             //console.log('clear creek', style);
             return style;
             break;
-        case 'Hidden Lake':
+        case 'First Creek Tributary T':
             return [new ol.style.Style({
                 stroke: new ol.style.Stroke({
                     color: 'rgba(35,35,35,1.0)',
@@ -43,24 +43,24 @@ function categories_MajorWatersheds_0(feature, value, size, resolution, labelTex
                     bufferWidth)
             })];
             break;
-        case 'Leyden Creek':
-            return [new ol.style.Style({
-                stroke: new ol.style.Stroke({
-                    color: 'rgba(35,35,35,1.0)',
-                    lineDash: null,
-                    lineCap: 'butt',
-                    lineJoin: 'miter',
-                    width: 0
-                }),
-                fill: new ol.style.Fill({
-                    color: 'rgba(231,172,21,' + trans + ')'
-                }),
-                text: createTextStyle(feature, resolution, labelText, labelFont,
-                    labelFill, placement, bufferColor,
-                    bufferWidth)
-            })];
-            break;
-        case 'Little Dry Creek':
+ //       case '':
+ //           return [new ol.style.Style({
+ //               stroke: new ol.style.Stroke({
+ //                   color: 'rgba(35,35,35,1.0)',
+ //                   lineDash: null,
+  //                  lineCap: 'butt',
+  //                  lineJoin: 'miter',
+  //                  width: 0
+  //              }),
+  //              fill: new ol.style.Fill({
+   //                 color: 'rgba(231,172,21,' + trans + ')'
+  //              }),
+  //              text: createTextStyle(feature, resolution, labelText, labelFont,
+  //                  labelFill, placement, bufferColor,
+   //                 bufferWidth)
+    //        })];
+     //       break;
+        case 'DFA 0055':
             return [new ol.style.Style({
                 stroke: new ol.style.Stroke({
                     color: 'rgba(35,35,35,1.0)',
@@ -77,57 +77,57 @@ function categories_MajorWatersheds_0(feature, value, size, resolution, labelTex
                     bufferWidth)
             })];
             break;
-        case 'Little Dry Creek (ADCO) Tributary':
-            return [new ol.style.Style({
-                stroke: new ol.style.Stroke({
-                    color: 'rgba(35,35,35,1.0)',
-                    lineDash: null,
-                    lineCap: 'butt',
-                    lineJoin: 'miter',
-                    width: 0
-                }),
-                fill: new ol.style.Fill({
-                    color: 'rgba(202,52,167,' + trans + ')'
-                }),
-                text: createTextStyle(feature, resolution, labelText, labelFont,
-                    labelFill, placement, bufferColor,
-                    bufferWidth)
-            })];
-            break;
-        case 'Ralston Creek':
-            return [new ol.style.Style({
-                stroke: new ol.style.Stroke({
-                    color: 'rgba(35,35,35,1.0)',
-                    lineDash: null,
-                    lineCap: 'butt',
-                    lineJoin: 'miter',
-                    width: 0
-                }),
-                fill: new ol.style.Fill({
-                    color: 'rgba(133,45,227,' + trans + ')'
-                }),
-                text: createTextStyle(feature, resolution, labelText, labelFont,
-                    labelFill, placement, bufferColor,
-                    bufferWidth)
-            })];
-            break;
-        case 'Van Bibber Creek':
-            return [new ol.style.Style({
-                stroke: new ol.style.Stroke({
-                    color: 'rgba(35,35,35,1.0)',
-                    lineDash: null,
-                    lineCap: 'butt',
-                    lineJoin: 'miter',
-                    width: 0
-                }),
-                fill: new ol.style.Fill({
-                    color: 'rgba(15,238,67,' + trans + ')'
-                }),
-                text: createTextStyle(feature, resolution, labelText, labelFont,
-                    labelFill, placement, bufferColor,
-                    bufferWidth)
-            })];
-            break;
+  //      case 'Little Dry Creek (ADCO) Tributary':
+  //          return [new ol.style.Style({
+  //              stroke: new ol.style.Stroke({
+  //                  color: 'rgba(35,35,35,1.0)',
+  //                  lineDash: null,
+  //                  lineCap: 'butt',
+  //                  lineJoin: 'miter',
+  //                  width: 0
+  //              }),
+  //              fill: new ol.style.Fill({
+  //                  color: 'rgba(202,52,167,' + trans + ')'
+  //              }),
+  //              text: createTextStyle(feature, resolution, labelText, labelFont,
+  //                  labelFill, placement, bufferColor,
+  //                  bufferWidth)
+  //          })];
+  //          break;
+  //      case 'Ralston Creek':
+  //          return [new ol.style.Style({
+  //             stroke: new ol.style.Stroke({
+   //                 color: 'rgba(35,35,35,1.0)',
+   //                 lineDash: null,
+   //                 lineCap: 'butt',
+   //                 lineJoin: 'miter',
+   //                 width: 0
+   //             }),
+   //             fill: new ol.style.Fill({
+   //                 color: 'rgba(133,45,227,' + trans + ')'
+   //             }),
+   //             text: createTextStyle(feature, resolution, labelText, labelFont,
+   //                 labelFill, placement, bufferColor,
+   //                 bufferWidth)
+   //         })];
+   //         break;
+   //     case 'Van Bibber Creek':
+   //         return [new ol.style.Style({
+   //             stroke: new ol.style.Stroke({
+   //                 color: 'rgba(35,35,35,1.0)',
+   //                 lineDash: null,
+   //                 lineCap: 'butt',
+   //                 lineJoin: 'miter',
+   //                 width: 0
+   //             }),
+   //             fill: new ol.style.Fill({
+   //                 color: 'rgba(15,238,67,' + trans + ')'
+   //             }),
+   //             text: createTextStyle(feature, resolution, labelText, labelFont,
+   //                 labelFill, placement, bufferColor,
+   //                 bufferWidth)
+   //         })];
+   //         break;
         default:
             return [new ol.style.Style({
                 stroke: new ol.style.Stroke({
@@ -153,7 +153,7 @@ var style_MajorWatersheds_0 = function(feature, resolution) {
         feature: feature,
         variables: {}
     };
-    var value = feature.get("udfcd_nam");
+    var value = feature.get('basin');
     var labelText = "";
     size = 0;
     var labelFont = "20.0px \'MS Shell Dlg 2\', sans-serif";
@@ -164,8 +164,8 @@ var style_MajorWatersheds_0 = function(feature, resolution) {
     var offsetX = 0;
     var offsetY = 0;
     var placement = 'point';
-    if (feature.get("udfcd_nam") !== null) {
-        labelText = String(feature.get("udfcd_nam"));
+    if (feature.get('basin') !== null) {
+        labelText = String(feature.get('basin'));
     }
 
     var style = categories_MajorWatersheds_0(feature, value, size, resolution, labelText,

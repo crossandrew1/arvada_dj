@@ -1,15 +1,16 @@
+
 /*
 https://riverproject.co:8443/geoserver/arvada_swmp/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=arvada_swmp:mp_question&outputFormat=application/json&srsname=EPSG:3857
 */
 
-var website = 'https://firstcreekmdp.com:8443/geoserver/arvada_swmp/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName='
+var website = 'https://firstcreekmdp.com:8443/geoserver/firstcreekMDP/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName='
 var website_end='&outputFormat=application/json&srsname=EPSG:3857'
 
-
-
-var basin='arvada_swmp:mp_watersheds'
-var questions='arvada_swmp:mp_question'
-
+var merrick='firstcreekMDP:Merrick'
+var streams='firstcreekMDP:Streams_Traced'
+var subcatchments='firstcreekMDP:moser_subwatershed'
+var mhfd_watersheds='firstcreekMDP:Watershed_Traced'
+var comments='firstcreekMDP:comment_comment'
 
 
 
@@ -152,10 +153,7 @@ var commentSource = new ol.source.Vector({
     attributions: '<a href=""></a>',
     format: new ol.format.GeoJSON(),
     url: function(extent) {
-        return 'https://riverproject.co:8443/geoserver/arvada_swmp/wfs?service=WFS&version=1.1.0&' +
-             //'request=GetFeature&typeName=arvada_swmp:mp_comment&outputFormat=' +
-             'request=GetFeature&typeName=arvada_swmp:comment_comment&outputFormat=' +
-             'application/json&srsname=EPSG:3857'
+        return website+comments+website_end
         },
     crossOrigin: 'anonymous',
 });
@@ -221,7 +219,7 @@ var lyr_ArvadaBoundary_0 = new ol.layer.Vector({
 
 });
 
-lyr_ArvadaBoundary_0.setVisible(true);
+lyr_ArvadaBoundary_0.setVisible(false);
 /*lyr_ArvadaBoundary_0.set('fieldAliases', {
     'city': 'city',
     'sqmi': 'sqmi',
@@ -245,9 +243,7 @@ var jsonSource_irr_gravity_main = new ol.source.Vector({
     attributions: '<a href="">City of Arvada</a>',
     format: new ol.format.GeoJSON(),
     url: function(extent) {
-        return 'https://riverproject.co:8443/geoserver/arvada_swmp/wfs?service=WFS&version=1.1.0&' +
-             'request=GetFeature&typeName=arvada_swmp:irr_gravity_main&outputFormat=' +
-             'application/json&srsname=EPSG:3857'
+        return website+streams+website_end
         },
     crossOrigin: 'anonymous',
 });
@@ -299,9 +295,7 @@ var jsonSource_irr_ditch = new ol.source.Vector({
     attributions: '<a href=""></a>',
     format: new ol.format.GeoJSON(),
     url: function(extent) {
-        return 'https://riverproject.co:8443/geoserver/arvada_swmp/wfs?service=WFS&version=1.1.0&' +
-             'request=GetFeature&typeName=arvada_swmp:irr_ditch&outputFormat=' +
-             'application/json&srsname=EPSG:3857'
+        return website+subcatchments+website_end
         },
     crossOrigin: 'anonymous',
 });
@@ -311,7 +305,7 @@ var lyr_irr_ditch = new ol.layer.Vector({
     source: jsonSource_irr_ditch,
     //style: style_irr_ditch,
     style: style_irr_ditch,
-    title: '<img src="/static/webmap/styles/legend/irr_ditch.png"> SW Irrigation Ditch'
+    title: '<img src="/static/webmap/styles/legend/irr_ditch.png"> Subcatchments (Moser)'
 });
 
 lyr_irr_ditch.set('fieldAliases', {
@@ -579,9 +573,8 @@ var jsonSource_MP_Sub_Basins= new ol.source.Vector({
     attributions: '<a href=""></a>',
     format: new ol.format.GeoJSON(),
     url: function(extent) {
-        return 'https://riverproject.co:8443/geoserver/arvada_swmp/wfs?service=WFS&version=1.1.0&' +
-             'request=GetFeature&typeName=arvada_swmp:mp_sub_basins&outputFormat=' +
-             'application/json&srsname=EPSG:3857'
+        return website+merrick+website_end
+
         },
     crossOrigin: 'anonymous',
 });
@@ -589,7 +582,7 @@ var lyr_SubBasins = new ol.layer.Vector({
     declutter: true,
     source: jsonSource_MP_Sub_Basins,
     style: style_MP_Sub_Basins,
-    title: '<img src="/static/webmap/styles/legend/major_collection_basins.PNG"> Subcatchment'
+    title: '<img src="/static/webmap/styles/legend/major_collection_basins.PNG"> Upper Tributaries Study (Merrick)'
 });
 lyr_SubBasins.set('fieldAliases', {
     'area_ac': 'Area [ac]', 
@@ -702,7 +695,8 @@ var jsonSource_MajorOutfallBasins_0 = new ol.source.Vector({
     attributions: '<a href=""></a>',
     format: new ol.format.GeoJSON(),
     url: function(extent) {
-        return website+basin+website_end
+        return website+mhfd_watersheds+website_end
+
         },
     crossOrigin: 'anonymous',
 });
@@ -789,9 +783,7 @@ var jsonSource_MajorWatersheds_0 = new ol.source.Vector({
     attributions: '<a href=""></a>',
     format: new ol.format.GeoJSON(),
     url: function(extent) {
-        return 'https://riverproject.co:8443/geoserver/arvada_swmp/wfs?service=WFS&version=1.1.0&' +
-             'request=GetFeature&typeName=arvada_swmp:major_watersheds&outputFormat=' +
-             'application/json&srsname=EPSG:3857'
+        return website+mhfd_watersheds+website_end
         },
     crossOrigin: 'anonymous',
 });
@@ -822,9 +814,7 @@ var jsonSource_arvada_swmpcreeks_4 = new ol.source.Vector({
     attributions: '<a href=""></a>',
     format: new ol.format.GeoJSON(),
     url: function(extent) {
-        return 'https://riverproject.co:8443/geoserver/arvada_swmp/wfs?service=WFS&version=1.1.0&' +
-             'request=GetFeature&typeName=arvada_swmp:creeks&outputFormat=' +
-             'application/json&srsname=EPSG:3857'
+        return website+streams+website_end
         },
     crossOrigin: 'anonymous',
 });
@@ -1147,7 +1137,7 @@ lyr_irr_ditch.setVisible(false);
 // Layer groups
 var group_sw = new ol.layer.Group({
     layers: [
-                lyr_sw_detention,
+               lyr_sw_detention,
                 lyr_sw_culvert,
                 lyr_sw_storm_ditch,
                 lyr_sw_gravity_main,
@@ -1172,22 +1162,25 @@ var group_Hydrolo = new ol.layer.Group({
     layers:[
                 lyr_draft_Flow_Paths_0,
                 lyr_MajorOutfallBasins_0,
-                //lyr_SubBasins_0,
+            //    lyr_SubBasins_0,
                 lyr_arvada_OutfallToCentroid,
                 lyr_arvada_designPoint_0],
     title: "Hydrology"
 });
 
 var layersList = [  lyr_GoogleTerrain_0, lyr_GoogleHybrid_1,
-                    lyr_ArvadaBoundary_0,
-                    lyr_MajorWatersheds_0, lyr_arvada_swmpcreeks_4,
-                    group_sw_irrigation, group_sw,
+                   // lyr_ArvadaBoundary_0,
+                      lyr_arvada_swmpcreeks_4,
+                 //   group_sw_irrigation, group_sw,
                 //    lyr_mp_picture,
 
-                    lyr_draft_Flow_Paths_0,lyr_arvada_OutfallToCentroid,
-                    lyr_MajorOutfallBasins_0,
-                    lyr_arvada_designPoint_0,
+                   // lyr_draft_Flow_Paths_0,lyr_arvada_OutfallToCentroid,
+//                    lyr_MajorOutfallBasins_0,
+                    //lyr_arvada_designPoint_0,
                     lyr_SubBasins,
-                    lyr_mp_comment,
-                    lyr_mp_question,
-                    lyr_mp_assumption ];
+		    lyr_irr_ditch,
+		    lyr_MajorWatersheds_0,
+                //    lyr_irr_gravity_main,
+                    lyr_mp_comment];
+                   // lyr_mp_question,
+                   // lyr_mp_assumption];

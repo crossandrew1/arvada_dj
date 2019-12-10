@@ -32,30 +32,30 @@ function categories_SubBasins(feature){
     var VBC = 'rgba(10,102,94,' + trans + ')'
     var CC = 'rgba(100,60,48,' + trans + ')'
 
-    if (feature.get("basin") !== null ) {
-        var value = String(feature.get("basin"));
+    if (feature.get("tributary") !== null ) {
+        var value = String(feature.get("tributary"));
     }
 
     switch (value.toString()) {
-        case 'CC':
+        case '1st Avenue':
             return colors(CC);
-        case 'LDC':
+        case 'Florida':
             return colors(LDC);
-        case 'VBC':
+        case 'Gun Club':
             return colors(VBC);
-        case 'HL':
+        case 'Harvest':
             return colors(HL);
-        case 'R':
+        case 'Hayesmount':
             return  colors(R);
-        case 'BG':
+        case 'Mississippi':
             return colors(BG);
-        case 'FHL':
+        case 'Monaghan':
             return colors(FHL);
-        case 'LC':
+        case 'Powhaton South':
             return colors(LC);
-        case 'MG':
+        case 'Riverwood':
             return colors(MG);
-        case 'UDC':
+        case 'Titus':
             return colors(UDC);
         case 'C':
             return colors(C);

@@ -1,26 +1,26 @@
  var style_irr_gravity_main = function(feature, resolution) {
-     var labelText = "";
+    // var labelText = "";
  
-     if (feature.get("diameterte") !== null) {
-         labelText = String(feature.get("diameterte"));
-     }
+//     if (feature.get("diameterte") !== null) {
+  //       labelText = String(feature.get("diameterte"));
+  //   }
  
      return [new ol.style.Style({
                  stroke: new ol.style.Stroke({
                                          color: 'rgba(200,29,255,1.0)',
                                          lineDash: null, lineCap: 'square',
                                          lineJoin: 'bevel', width: 3}),
-                 text: new ol.style.Text({
-                                         text: labelText,
-                                         font: "bold 14.0px \'.SF NS Text\', sans-serif",
-                                         //maxAngle: 0,
-                                         placement: 'line',
-                                         fill: new ol.style.Fill({
-                                             color: "black"}),
-                                         stroke: new ol.style.Stroke({
-                                                                 color: "white",
-                                                                 width: 2,}),
-                 }),
+//                 text: new ol.style.Text({
+ //                                        text: labelText,
+  //                                       font: "bold 14.0px \'.SF NS Text\', sans-serif",
+   //                                      //maxAngle: 0,
+    //                                     placement: 'line',
+     //                                    fill: new ol.style.Fill({
+      //                                       color: "black"}),
+       //                                  stroke: new ol.style.Stroke({
+        //                                                         color: "white",
+         //                                                        width: 2,}),
+           //      }),
      })];
 };
 

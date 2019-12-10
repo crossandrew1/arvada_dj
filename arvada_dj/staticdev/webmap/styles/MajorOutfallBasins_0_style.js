@@ -32,15 +32,15 @@ function categories_MajorBasins(feature){
     var VBC = 'rgba(10,102,94,' + trans + ')'
     var CC = 'rgba(100,60,48,' + trans + ')'
 
-    if (feature.get("Basin") !== null ) {
-        var value = String(feature.get("Basin"));
+    if (feature.get("udfcd_nam") !== null ) {
+        var value = String(feature.get("udfcd_nam"));
     }
     switch (value.toString()) {
-        case 'CC':
+        case "DFA 0055":
             return colors(CC);
-        case 'LDC':
+        case "First Creek":
             return colors(LDC);
-        case 'VBC':
+        case "First Creek Tributary T":
             return colors(VBC);
         case 'HL':
             return colors(HL);
@@ -58,6 +58,23 @@ function categories_MajorBasins(feature){
             return colors(UDC);
         case 'C':
             return colors(C);
+	default:
+           return [new ol.style.Style({
+               stroke: new ol.style.Stroke({
+                   color: 'rgba(35,35,35,1.0)',
+                   lineDash: null,
+                   lineCap: 'butt',
+                   lineJoin: 'miter',
+                   width: 0
+               }),
+               fill: new ol.style.Fill({
+                   color: 'rgba(135,215,43,' + trans + ')'
+               }),
+               text: createTextStyle(feature, resolution, labelText, labelFont,
+                   labelFill, placement, bufferColor,
+                   bufferWidth)
+           })];
+            
     }
 
 }
