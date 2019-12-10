@@ -11,7 +11,7 @@ var streams='firstcreekMDP:Streams_Traced'
 var subcatchments='firstcreekMDP:moser_subwatershed'
 var mhfd_watersheds='firstcreekMDP:Watershed_Traced'
 var comments='firstcreekMDP:comment_comment'
-
+var city_limits='firstcreekMDP:Municipalities'
 
 
 var wms_layers = [];
@@ -204,9 +204,7 @@ var jsonSource_ArvadaBoundary_0 = new ol.source.Vector({
     attributions: '<a href=""></a>',
     format: new ol.format.GeoJSON(),
     url: function(extent) {
-        return 'https://riverproject.co:8443/geoserver/arvada_swmp/wfs?service=WFS&version=1.1.0&' +
-             'request=GetFeature&typeName=arvada_swmp:arvada_drcog_boundary&outputFormat=' +
-             'application/json&srsname=EPSG:3857'
+        return website+city_limits+website_end
         },
     crossOrigin: 'anonymous',
 });
@@ -214,24 +212,21 @@ var jsonSource_ArvadaBoundary_0 = new ol.source.Vector({
 var lyr_ArvadaBoundary_0 = new ol.layer.Vector({
     declutter: true,
     source: jsonSource_ArvadaBoundary_0,
-    style: style_ArvadaBoundary_0,
-    title: '<img src="/static/webmap/styles/legend/arvadaBoundary.png"> Arvada Boundary'
+    style: style_Municipalities,
+    title: 'Municipal Boundaries'
 
 });
 
-lyr_ArvadaBoundary_0.setVisible(false);
-/*lyr_ArvadaBoundary_0.set('fieldAliases', {
-    'city': 'city',
-    'sqmi': 'sqmi',
+lyr_ArvadaBoundary_0.setVisible(true);
+lyr_ArvadaBoundary_0.set('fieldAliases', {
+    'first_city': 'city',
 });
 lyr_ArvadaBoundary_0.set('fieldImages', {
-    'city': 'TextEdit',
-    'sqmi': 'TextEdit',
+    'first_city': 'TextEdit',
 });
 lyr_ArvadaBoundary_0.set('fieldLabels', {
-    'city': 'inline label',
-    'sqmi': 'inline label',
-});*/
+    'first_city': 'inline label',
+});
 lyr_ArvadaBoundary_0.on('precompose', function(evt) {
     evt.context.globalCompositeOperation = 'normal';
 });
@@ -305,7 +300,7 @@ var lyr_irr_ditch = new ol.layer.Vector({
     source: jsonSource_irr_ditch,
     //style: style_irr_ditch,
     style: style_irr_ditch,
-    title: '<img src="/static/webmap/styles/legend/irr_ditch.png"> Subcatchments (Moser)'
+    title: '<img src="/static/webmap/styles/legend/irr_gravity_main.png"> Subcatchments (Moser)'
 });
 
 lyr_irr_ditch.set('fieldAliases', {
@@ -791,7 +786,7 @@ var lyr_MajorWatersheds_0 = new ol.layer.Vector({
     declutter: true,
     source: jsonSource_MajorWatersheds_0,
     style: style_MajorWatersheds_0,
-    title: "Watershed"
+    title: "MHFD Watershed"
 });
 
 lyr_MajorWatersheds_0.set('fieldAliases', {
@@ -1169,7 +1164,7 @@ var group_Hydrolo = new ol.layer.Group({
 });
 
 var layersList = [  lyr_GoogleTerrain_0, lyr_GoogleHybrid_1,
-                   // lyr_ArvadaBoundary_0,
+                      lyr_ArvadaBoundary_0,
                       lyr_arvada_swmpcreeks_4,
                  //   group_sw_irrigation, group_sw,
                 //    lyr_mp_picture,

@@ -1,8 +1,11 @@
 /** 
  * Return OL style instance for subcatchments
  */
-function categories_SubBasins(feature){
+//function categories_SubBasins(feature){
+function categories_merrick_trib(feature){
     // define color, size, and style for basin  
+
+    console.log('here');
     function colors(fill_color){
         var style = [new ol.style.Style({
             stroke: new ol.style.Stroke({
@@ -17,7 +20,7 @@ function categories_SubBasins(feature){
             }),
         })];
         return style;
-    }
+    };
 
     var trans = '0.30';
     var UDC = 'rgba(84,48,5,' + trans + ')'
@@ -61,13 +64,14 @@ function categories_SubBasins(feature){
             return colors(C);
     }
 
-}
+};
+
 //define style layer to be used in layers.js
 var style_MP_Sub_Basins = function(feature){
 	/*var context = {
 		feature: feature,
 	};*/
-	var style = categories_SubBasins(feature);
-	return style;
+	var my_style = categories_merrick_trib(feature);
+	return my_style;
 };
 
