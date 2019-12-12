@@ -1,7 +1,7 @@
 /** categories_municipalities
  * Return OL style instance for subcatchments
  */
-function categories_municipalities(feature){
+function categories_DenverFLU(feature){
     // define color, size, and style for basin  
     function colors(fill_color){
         var style = [new ol.style.Style({
@@ -32,16 +32,16 @@ function categories_municipalities(feature){
     var VBC = 'rgba(10,102,94,' + trans + ')'
     var CC = 'rgba(100,60,48,' + trans + ')'
 
-    if (feature.get("first_city") !== null ) {
-        var value = String(feature.get("first_city"));
+    if (feature.get("fut_nbhd_c") !== null ) {
+        var value = String(feature.get("fut_nbhd_c"));
     }
 
     switch (value.toString()) {
-        case 'Denver':
+        case 'SUBURBAN':
             return colors(CC);
-        case 'Aurora':
+        case 'URBAN':
             return colors(LDC);
-        case 'Arva':
+        case 'Arvada':
             return colors(VBC);
         case 'URBAN CENTER':
             return colors(HL);
@@ -63,11 +63,11 @@ function categories_municipalities(feature){
 
 }
 //define style layer to be used in layers.js
-var  style_Municipalities = function(feature){
+var  style_DenverFLU = function(feature){
 	/*var context = {
 		feature: feature,
 	};*/
-	var style = categories_municipalities(feature);
+	var style = categories_DenverFLU(feature);
 	return style;
 };
 

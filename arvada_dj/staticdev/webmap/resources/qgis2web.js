@@ -601,7 +601,7 @@ if (!superMap) {
     ol_popup_content.innerHTML = 
     `<h3> Welcome! </h3>
      <p> Welcome to the First Creek Major Drainage Plan website. 
-     Data can be turned on or off by toggling the gray boxs in the legend off to the right. Comments can 
+     Data can be turned on or off by toggling the gray boxes in the legend off to the right. Comments can 
     made by clicking on the message icon to the left and then clicking on the map.</p> 
     <h4>Thank you,</h4> 
     <h4>Your RESPEC Team</h4> `

@@ -92,13 +92,18 @@
   <script src="{% static 'webmap/styles/MajorWatersheds_0_style.js' %}?v{{ app_ver }}"></script>
   <script src="{% static 'webmap/styles/ArvadaBoundary_0_style.js' %}?v{{ app_ver }}"></script>
   <script src="{% static 'webmap/styles/arvada_OutfallToCentroid_style.js' %}?v{{ app_ver }}"></script>
-
+  <script src="{% static 'webmap/styles/County.js' %}?v{{ app_ver }}"></script>
   <script src="{% static 'webmap/styles/MajorOutfallBasins_0_style.js' %}?v{{ app_ver }}"></script>
   <script src="{% static 'webmap/styles/mp_subbasins.js' %}?v{{ app_ver }}"></script>
   <script src="{% static 'webmap/styles/draft_Flow_Paths_0_style.js' %}?v{{ app_ver }}"></script>
   <script src="{% static 'webmap/styles/arvada_designPoint_0_style.js' %}?v{{ app_ver }}"></script>
   <script src="{% static 'webmap/styles/mp_picture.js' %}?v{{ app_ver }}"></script>
 
+  <script src="{% static 'webmap/styles/ADAMSFLU.js' %}?v{{ app_ver }}"></script> 
+  <script src="{% static 'webmap/styles/AURORAFLU.js' %}?v{{ app_ver }}"></script>
+  <script src="{% static 'webmap/styles/CCFLU.js' %}?v{{ app_ver }}"></script>
+
+  <script src="{% static 'webmap/styles/DenverFLU.js' %}?v{{ app_ver }}"></script>
   <script src="{% static 'webmap/styles/sw_inlet.js' %}?v{{ app_ver }}"></script>
   <script src="{% static 'webmap/styles/sw_outfall_style.js' %}?v{{ app_ver }}"></script>
   <script src="{% static 'webmap/styles/sw_gravity_main.js' %}?v{{ app_ver }}"></script>
@@ -146,5 +151,6 @@
       superMapButton.href = "{% url 'map:super_map'%}";
       mapNavButton.parentNode.insertBefore(superMapButton, mapNavButton.nextSibling);
     }
+   
   </script>
 {% endblock %}

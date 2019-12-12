@@ -1,7 +1,7 @@
 /** categories_municipalities
  * Return OL style instance for subcatchments
  */
-function categories_municipalities(feature){
+function categories_County(feature){
     // define color, size, and style for basin  
     function colors(fill_color){
         var style = [new ol.style.Style({
@@ -23,25 +23,25 @@ function categories_municipalities(feature){
     var UDC = 'rgba(84,48,5,' + trans + ')'
     var BG = 'rgba(14,0,10,' + trans + ')'
     var LC = 'rgba(191,129,45,' + trans + ')'
-    var LDC = 'rgba(223,194,125,' + trans + ')'
+    var LDC = 'rgba(123,294,225,' + trans + ')'
     var MG = 'rgba(0,132,195,' + trans + ')'
     var R = 'rgba(145,245,229,' + trans + ')'
     var HL ='rgba(193,0,0,' + trans + ')'
     var FHL = 'rgba(145,245,229,' + trans + ')'
     var C = 'rgba(145,245,229,' + trans + ')'
     var VBC = 'rgba(10,102,94,' + trans + ')'
-    var CC = 'rgba(100,60,48,' + trans + ')'
+    var CC = 'rgba(100,160,148,' + trans + ')'
 
-    if (feature.get("first_city") !== null ) {
-        var value = String(feature.get("first_city"));
+    if (feature.get("county") !== null ) {
+        var value = String(feature.get("county"));
     }
 
     switch (value.toString()) {
-        case 'Denver':
+        case 'Adams':
             return colors(CC);
-        case 'Aurora':
+        case 'Arapahoe':
             return colors(LDC);
-        case 'Arva':
+        case 'Arvada':
             return colors(VBC);
         case 'URBAN CENTER':
             return colors(HL);
@@ -63,11 +63,11 @@ function categories_municipalities(feature){
 
 }
 //define style layer to be used in layers.js
-var  style_Municipalities = function(feature){
+var  style_County = function(feature){
 	/*var context = {
 		feature: feature,
 	};*/
-	var style = categories_municipalities(feature);
+	var style = categories_County(feature);
 	return style;
 };
 

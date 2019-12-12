@@ -6,12 +6,18 @@ https://riverproject.co:8443/geoserver/arvada_swmp/wfs?service=WFS&version=1.1.0
 var website = 'https://firstcreekmdp.com:8443/geoserver/firstcreekMDP/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName='
 var website_end='&outputFormat=application/json&srsname=EPSG:3857'
 
+var county ='firstcreekMDP:county'
 var merrick='firstcreekMDP:Merrick'
 var streams='firstcreekMDP:Streams_Traced'
 var subcatchments='firstcreekMDP:moser_subwatershed'
 var mhfd_watersheds='firstcreekMDP:Watershed_Traced'
 var comments='firstcreekMDP:comment_comment'
 var city_limits='firstcreekMDP:Municipalities'
+var dflu = 'firstcreekMDP:Denver_FLU'
+var ccflu = 'firstcreekMDP:CommerceC_FLUClip'
+var aurflu = 'firstcreekMDP:Aurora_FLU'
+var adaflu = 'firstcreekMDP:AdamsCo_FLU'
+
 
 
 var wms_layers = [];
@@ -230,6 +236,166 @@ lyr_ArvadaBoundary_0.set('fieldLabels', {
 lyr_ArvadaBoundary_0.on('precompose', function(evt) {
     evt.context.globalCompositeOperation = 'normal';
 });
+
+////////////////////////////////////////////
+//Denver FLU
+//////////////////////////////////////////
+var jsonSource_County = new ol.source.Vector({
+    attributions: '<a href=""></a>',
+    format: new ol.format.GeoJSON(),
+    url: function(extent) {
+        return website+county+website_end
+        },
+    crossOrigin: 'anonymous',
+});
+
+var lyr_County = new ol.layer.Vector({
+    declutter: true,
+    source: jsonSource_County,
+    style: style_County,
+    title: 'County Boundaries'
+
+});
+
+lyr_County.setVisible(true)
+lyr_County.set('fieldAliases', {
+    'county': 'County',
+});
+lyr_County.set('fieldImages', {
+    'county': 'TextEdit',
+});
+lyr_County.set('fieldLabels', {
+    'county': 'inline label',
+});
+lyr_County.on('precompose', function(evt) {
+    evt.context.globalCompositeOperation = 'normal';
+});
+
+
+var jsonSource_DenverFLU = new ol.source.Vector({
+    attributions: '<a href=""></a>',
+    format: new ol.format.GeoJSON(),
+    url: function(extent) {
+        return website+dflu+website_end
+        },
+    crossOrigin: 'anonymous',
+});
+
+var lyr_DenverFLU = new ol.layer.Vector({
+    declutter: true,
+    source: jsonSource_DenverFLU,
+    style: style_DenverFLU,
+    title: 'Denver FLU'
+
+});
+
+lyr_DenverFLU.setVisible(false)
+lyr_DenverFLU.set('fieldAliases', {
+    'fut_nbhd_c': 'Future Land Use','plctype_fu':'Type', 'growth_fut':'Growth Type',
+});
+lyr_DenverFLU.set('fieldImages', {
+    'fut_nbhd_c': 'TextEdit','plctype_fu':'TextEdit','growth_fut':'TextEdit',
+});
+lyr_DenverFLU.set('fieldLabels', {
+    'fut_nbhd_c': 'inline label','plctype_fu':'inline label','growth_fut':'inline label',
+});
+lyr_DenverFLU.on('precompose', function(evt) {
+    evt.context.globalCompositeOperation = 'normal';
+});
+var jsonSource_ADAMSFLU = new ol.source.Vector({
+    attributions: '<a href=""></a>',
+    format: new ol.format.GeoJSON(),
+    url: function(extent) {
+        return website+adaflu+website_end
+        },
+    crossOrigin: 'anonymous',
+});
+
+var lyr_ADAMSFLU = new ol.layer.Vector({
+    declutter: true,
+    source: jsonSource_ADAMSFLU,
+    style: style_ADAMSFLU,
+    title: 'Adams CO FLU'
+
+});
+
+lyr_ADAMSFLU.setVisible(false)
+lyr_ADAMSFLU.set('fieldAliases', {
+    'futurelu': 'Future Land Use',
+});
+lyr_ADAMSFLU.set('fieldImages', {
+    'futurelu': 'TextEdit',
+});
+lyr_ADAMSFLU.set('fieldLabels', {
+    'futurelu': 'inline label',
+});
+lyr_ADAMSFLU.on('precompose', function(evt) {
+    evt.context.globalCompositeOperation = 'normal';
+});
+
+var jsonSource_AURORAFLU_0 = new ol.source.Vector({
+    attributions: '<a href=""></a>',
+    format: new ol.format.GeoJSON(),
+    url: function(extent) {
+        return website+aurflu+website_end
+        },
+    crossOrigin: 'anonymous',
+});
+
+var lyr_AURORAFLU = new ol.layer.Vector({
+    declutter: true,
+    source: jsonSource_AURORAFLU_0,
+    style: style_AURORAFLU,
+    title: 'Aurora FLU'
+
+});
+
+lyr_AURORAFLU.setVisible(false)
+lyr_AURORAFLU.set('fieldAliases', {
+    'placetype': 'Future Land Use',
+});
+lyr_AURORAFLU.set('fieldImages', {
+    'placetype': 'TextEdit',
+});
+lyr_AURORAFLU.set('fieldLabels', {
+    'placetype': 'inline label',
+});
+lyr_AURORAFLU.on('precompose', function(evt) {
+    evt.context.globalCompositeOperation = 'normal';
+});
+
+var jsonSource_CCFLU = new ol.source.Vector({
+    attributions: '<a href=""></a>',
+    format: new ol.format.GeoJSON(),
+    url: function(extent) {
+        return website+ccflu+website_end
+        },
+    crossOrigin: 'anonymous',
+});
+
+var lyr_CCFLU = new ol.layer.Vector({
+    declutter: true,
+    source: jsonSource_CCFLU,
+    style: style_CCFLU,
+    title: 'Commerce City FLU'
+
+});
+
+lyr_CCFLU.setVisible(false)
+lyr_CCFLU.set('fieldAliases', {
+    'zoning_cod': 'Future Land Use',
+});
+lyr_CCFLU.set('fieldImages', {
+    'zoning_cod': 'TextEdit',
+});
+lyr_CCFLU.set('fieldLabels', {
+    'zoning_cod': 'inline label',
+});
+lyr_CCFLU.on('precompose', function(evt) {
+    evt.context.globalCompositeOperation = 'normal';
+});
+
+
 
 ///////////////////////////////////////////
 // SW Irrigation Pipes
@@ -579,105 +745,105 @@ var lyr_SubBasins = new ol.layer.Vector({
     style: style_MP_Sub_Basins,
     title: '<img src="/static/webmap/styles/legend/major_collection_basins.PNG"> Upper Tributaries Study (Merrick)'
 });
-lyr_SubBasins.set('fieldAliases', {
-    'area_ac': 'Area [ac]', 
-    'dp_id' : 'ID', 
-    'basin' : 'Watershed',
-    'cfp_mi' : 'Centroid Flowpath (mi)',
-    'lfp_mi' : 'Flowpath (mi)',
-    'slope_dec' : 'Slope (ft/ft)',
-    'imper_perc' : 'Imperviousness (%)',
-    'infil_f_i' : 'Initial Infiltration (in/hr)',
-    'infil_f_0' : 'Final Infiltration (in/hr)',
-    'infil_alph' : 'Decay Coeff. (1/sec)',
-    '100_q' : 'Q100 (cfs)',
-    '100_v_cf' : 'V100 (ft^3)',
-    '50_q' : 'Q50 (cfs)',
-    '50_v_cf' : 'V50 (ft^3)',
-    '25_q' : 'Q25 (cfs)',
-    '25_v_cf' : 'V25 (ft^3)',
-    '10_q' : 'Q10 (cfs)',
-    '10_v_cf' : 'V10 (ft^3)',
-    '5_q' : 'Q5 (cfs)',
-    '5_v_cf' : 'V5 (ft^3)',
-    '2_q' : 'Q2 (cfs)',
-    '2_v_cf' : 'V2 (ft^3)',
+//lyr_SubBasins.set('fieldAliases', {
+//    'area_ac': 'Area [ac]', 
+//    'dp_id' : 'ID', 
+//    'basin' : 'Watershed',
+//    'cfp_mi' : 'Centroid Flowpath (mi)',
+//    'lfp_mi' : 'Flowpath (mi)',
+//    'slope_dec' : 'Slope (ft/ft)',
+//    'imper_perc' : 'Imperviousness (%)',
+//    'infil_f_i' : 'Initial Infiltration (in/hr)',
+//    'infil_f_0' : 'Final Infiltration (in/hr)',
+//    'infil_alph' : 'Decay Coeff. (1/sec)',
+//    '100_q' : 'Q100 (cfs)',
+//    '100_v_cf' : 'V100 (ft^3)',
+//    '50_q' : 'Q50 (cfs)',
+//    '50_v_cf' : 'V50 (ft^3)',
+//    '25_q' : 'Q25 (cfs)',
+//    '25_v_cf' : 'V25 (ft^3)',
+ //   '10_q' : 'Q10 (cfs)',
+  //  '10_v_cf' : 'V10 (ft^3)',
+//    '5_q' : 'Q5 (cfs)',
+//    '5_v_cf' : 'V5 (ft^3)',
+//    '2_q' : 'Q2 (cfs)',
+//    '2_v_cf' : 'V2 (ft^3)',
+//
+//});
+//lyr_SubBasins.set('fieldImages', {
+//    'area_ac': 'TextEdit', 
+//    'dp_id' : 'TextEdit',
+//    'basin' : 'TextEdit',
+//    'cfp_mi' : 'TextEdit',
+ //   'lfp_mi' : 'TextEdit',
+ //   'slope_dec' : 'TextEdit',
+ //   'imper_perc' : 'TextEdit',
+  //  'infil_f_i' : 'TextEdit',//
+//    'infil_f_0' : 'TextEdit',
+//    'infil_alph' : 'TextEdit',
+//    '100_q' : 'TextEdit',
+//    '100_v_cf' : 'TextEdit',
+//    '50_q' : 'TextEdit',
+//    '50_v_cf' : 'TextEdit',
+//    '25_q' : 'TextEdit',
+//    '25_v_cf' : 'TextEdit',
+//    '10_q' : 'TextEdit',
+//    '10_v_cf' : 'TextEdit',
+//    '5_q' : 'TextEdit',
+//    '5_v_cf' : 'TextEdit',
+ //   '2_q' : 'TextEdit',
+ //   '2_v_cf' : 'TextEdit',
+//});
+//lyr_SubBasins.set('fieldLabels', {
+//    'area_ac': 'inline label', 
+//    'dp_id' : 'inline label', 
+//    'basin' : 'inline label',
+//    'cfp_mi' : 'inline label',
+//    'lfp_mi' : 'inline label',
+//    'slope_dec' : 'inline label',
+//    'imper_perc' : 'inline label',
+//    'infil_f_i' : 'inline label',
+//    'infil_f_0' : 'inline label',
+//    'infil_alph' : 'inline label',
+//    '100_q' : 'inline label',
+ //   '100_v_cf' : 'inline label',
+ //   '50_q' : 'inline label',
+ //   '50_v_cf' : 'inline label',
+  //  '25_q' : 'inline label',
+ //   '25_v_cf' : 'inline label',
+ //   '10_q' : 'inline label',
+ //   '10_v_cf' : 'inline label',
+ //   '5_q' : 'inline label',
+ //   '5_v_cf' : 'inline label',
+ //   '2_q' : 'inline label',
+ //   '2_v_cf' : 'inline label',
+//});
 
-});
-lyr_SubBasins.set('fieldImages', {
-    'area_ac': 'TextEdit', 
-    'dp_id' : 'TextEdit',
-    'basin' : 'TextEdit',
-    'cfp_mi' : 'TextEdit',
-    'lfp_mi' : 'TextEdit',
-    'slope_dec' : 'TextEdit',
-    'imper_perc' : 'TextEdit',
-    'infil_f_i' : 'TextEdit',
-    'infil_f_0' : 'TextEdit',
-    'infil_alph' : 'TextEdit',
-    '100_q' : 'TextEdit',
-    '100_v_cf' : 'TextEdit',
-    '50_q' : 'TextEdit',
-    '50_v_cf' : 'TextEdit',
-    '25_q' : 'TextEdit',
-    '25_v_cf' : 'TextEdit',
-    '10_q' : 'TextEdit',
-    '10_v_cf' : 'TextEdit',
-    '5_q' : 'TextEdit',
-    '5_v_cf' : 'TextEdit',
-    '2_q' : 'TextEdit',
-    '2_v_cf' : 'TextEdit',
-});
-lyr_SubBasins.set('fieldLabels', {
-    'area_ac': 'inline label', 
-    'dp_id' : 'inline label', 
-    'basin' : 'inline label',
-    'cfp_mi' : 'inline label',
-    'lfp_mi' : 'inline label',
-    'slope_dec' : 'inline label',
-    'imper_perc' : 'inline label',
-    'infil_f_i' : 'inline label',
-    'infil_f_0' : 'inline label',
-    'infil_alph' : 'inline label',
-    '100_q' : 'inline label',
-    '100_v_cf' : 'inline label',
-    '50_q' : 'inline label',
-    '50_v_cf' : 'inline label',
-    '25_q' : 'inline label',
-    '25_v_cf' : 'inline label',
-    '10_q' : 'inline label',
-    '10_v_cf' : 'inline label',
-    '5_q' : 'inline label',
-    '5_v_cf' : 'inline label',
-    '2_q' : 'inline label',
-    '2_v_cf' : 'inline label',
-});
+//lyr_SubBasins.set('fieldKeys', [
+//    'dp_id' ,
+//    'basin' ,
+//    'area_ac',
+//    'lfp_mi' ,
+//    'cfp_mi' ,
+//    'slope_dec' ,
+//    'imper_perc' ,
+//    'infil_f_i' ,
+//    'infil_f_0' ,
+//    'infil_alph' ,
+//    '100_q' ,
+//    '100_v_cf' ,
+//    '50_q' ,
+//    '50_v_cf' ,
+//    '25_q' ,
+//    '25_v_cf' ,
+//    '10_q' ,
+//    '10_v_cf' ,
+//    '5_q' ,
+//    '5_v_cf' ,
+//    '2_q' ,
+ //   '2_v_cf' ,
 
-lyr_SubBasins.set('fieldKeys', [
-    'dp_id' ,
-    'basin' ,
-    'area_ac',
-    'lfp_mi' ,
-    'cfp_mi' ,
-    'slope_dec' ,
-    'imper_perc' ,
-    'infil_f_i' ,
-    'infil_f_0' ,
-    'infil_alph' ,
-    '100_q' ,
-    '100_v_cf' ,
-    '50_q' ,
-    '50_v_cf' ,
-    '25_q' ,
-    '25_v_cf' ,
-    '10_q' ,
-    '10_v_cf' ,
-    '5_q' ,
-    '5_v_cf' ,
-    '2_q' ,
-    '2_v_cf' ,
-
-]);
+//]);
 lyr_SubBasins.on('precompose', function(evt) {
     evt.context.globalCompositeOperation = 'normal';
 });
@@ -703,13 +869,12 @@ var lyr_MajorOutfallBasins_0 = new ol.layer.Vector({
 });
 lyr_MajorOutfallBasins_0.setVisible(false);
 lyr_MajorOutfallBasins_0.set('fieldAliases', {
-    'Area_ac': 'Area [ac]', 'DP_ID' : 'ID', 'Basin' : 'Basin'
-});
+    'udfcd_nam':'Watershed'});
 lyr_MajorOutfallBasins_0.set('fieldImages', {
-    'Area_ac': 'TextEdit', 'DP_ID' : 'TextEdit','Basin' : 'TextEdit'
+    'udfcd_nam': 'TextEdit'
 });
 lyr_MajorOutfallBasins_0.set('fieldLabels', {
-    'Area_ac': 'inline label', 'DP_ID' : 'inline label', 'Basin' : 'inline label'
+    'udfcd_nam': 'inline label'
 });
 lyr_MajorOutfallBasins_0.on('precompose', function(evt) {
     evt.context.globalCompositeOperation = 'normal';
@@ -790,13 +955,13 @@ var lyr_MajorWatersheds_0 = new ol.layer.Vector({
 });
 
 lyr_MajorWatersheds_0.set('fieldAliases', {
-    'udfcd_nam': 'Name',
+    'basin': 'Watershed',
 });
 lyr_MajorWatersheds_0.set('fieldImages', {
-    'udfcd_nam': 'TextEdit',
+    'basin': 'TextEdit',
 });
 lyr_MajorWatersheds_0.set('fieldLabels', {
-    'udfcd_nam': 'header label',
+    'basin': 'header label',
 });
 lyr_MajorWatersheds_0.on('precompose', function(evt) {
     evt.context.globalCompositeOperation = 'normal';
@@ -823,14 +988,14 @@ var lyr_arvada_swmpcreeks_4 = new ol.layer.Vector({
 });
 
 lyr_arvada_swmpcreeks_4.set('fieldAliases', {
-    'NAME': 'Name',
+    'name': 'Name',
 });
 
 lyr_arvada_swmpcreeks_4.set('fieldImages', {
-    'NAME': 'TextEdit',
+    'name': 'TextEdit',
 });
 lyr_arvada_swmpcreeks_4.set('fieldLabels', {
-    'NAME': 'header label',
+    'name': 'header label',
 });
 
 //////////////////////////////////////////////
@@ -1172,8 +1337,13 @@ var layersList = [  lyr_GoogleTerrain_0, lyr_GoogleHybrid_1,
                    // lyr_draft_Flow_Paths_0,lyr_arvada_OutfallToCentroid,
 //                    lyr_MajorOutfallBasins_0,
                     //lyr_arvada_designPoint_0,
+                    lyr_AURORAFLU,        
+                    lyr_ADAMSFLU,
+//                    lyr_CCFLU,
+                    lyr_DenverFLU,
                     lyr_SubBasins,
 		    lyr_irr_ditch,
+		    lyr_County,
 		    lyr_MajorWatersheds_0,
                 //    lyr_irr_gravity_main,
                     lyr_mp_comment];

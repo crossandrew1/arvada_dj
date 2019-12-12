@@ -1,7 +1,7 @@
 /** categories_municipalities
  * Return OL style instance for subcatchments
  */
-function categories_municipalities(feature){
+function categories_ADAMSFLU(feature){
     // define color, size, and style for basin  
     function colors(fill_color){
         var style = [new ol.style.Style({
@@ -29,45 +29,66 @@ function categories_municipalities(feature){
     var HL ='rgba(193,0,0,' + trans + ')'
     var FHL = 'rgba(145,245,229,' + trans + ')'
     var C = 'rgba(145,245,229,' + trans + ')'
+	var D = 'rgba(145,245,229,' + trans + ')'
+	var E = 'rgba(145,245,229,' + trans + ')'
+	var F = 'rgba(145,245,229,' + trans + ')'
+	var G = 'rgba(145,245,229,' + trans + ')'
+	var H = 'rgba(145,245,229,' + trans + ')'
     var VBC = 'rgba(10,102,94,' + trans + ')'
     var CC = 'rgba(100,60,48,' + trans + ')'
 
-    if (feature.get("first_city") !== null ) {
-        var value = String(feature.get("first_city"));
+    if (feature.get("futurelu") !== null ) {
+        var value = String(feature.get("futurelu"));
     }
 
     switch (value.toString()) {
-        case 'Denver':
+        case 'Activity Center':
             return colors(CC);
-        case 'Aurora':
+        case 'Agriculture':
             return colors(LDC);
-        case 'Arva':
+        case 'Commercial':
             return colors(VBC);
-        case 'URBAN CENTER':
+        case 'Estate Residential':
             return colors(HL);
-        case 'Commerce City':
+        case 'Industrial':
             return  colors(R);
-        case 'Thornton':
+        case 'Low Intensity Mixed Use':
             return colors(BG);
-        case 'Bro':
+        case 'Mixed Use/Employment':
             return colors(FHL);
-        case 'Powhaton South':
+        case 'Municipal Area':
             return colors(LC);
-        case 'Riverwood':
+        case 'Parks and Open Space':
             return colors(MG);
-        case 'Titus':
+        case 'Residential':
             return colors(UDC);
-        case 'C':
+        case 'PUD':
             return colors(C);
-    }
+         case 'R-1':
+            return colors(D);
+	 case 'R-2':
+            return colors(E);
+	 case 'R-3':
+            return colors(F);
+	 case 'ROW':
+            return colors(G);
+	 case 'THOR':
+            return colors(H);
+	
+
+ 
+
+
+
+	}
 
 }
 //define style layer to be used in layers.js
-var  style_Municipalities = function(feature){
+var  style_ADAMSFLU = function(feature){
 	/*var context = {
 		feature: feature,
 	};*/
-	var style = categories_municipalities(feature);
+	var style = categories_ADAMSFLU(feature);
 	return style;
 };
 
