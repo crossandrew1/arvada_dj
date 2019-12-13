@@ -38,10 +38,10 @@ function categories_CCFLU(feature){
     var CC = 'rgba(100,60,48,' + trans + ')'
 
     if (feature.get("zoning_cod") !== null ) {
-        var value = String(feature.get("zoning_cod"));
+        var val =String(feature.get("zoning_cod"));
     }
 
-    switch (value.toString()) {
+    switch (val.toString()) {
         case 'ADCO':
             return colors(CC);
         case 'AG':
@@ -74,21 +74,15 @@ function categories_CCFLU(feature){
             return colors(G);
 	 case 'THOR':
             return colors(H);
-	
-
- 
-
-
-
 	}
-
 }
+
 //define style layer to be used in layers.js
 var  style_CCFLU = function(feature){
 	/*var context = {
 		feature: feature,
 	};*/
 	var style = categories_CCFLU(feature);
-	return style;
+	return style ;
 };
 

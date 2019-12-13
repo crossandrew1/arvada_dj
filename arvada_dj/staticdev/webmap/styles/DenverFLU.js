@@ -3,7 +3,7 @@
  */
 function categories_DenverFLU(feature){
     // define color, size, and style for basin  
-    function colors(fill_color){
+    function color(fill_color){
         var style = [new ol.style.Style({
             stroke: new ol.style.Stroke({
                 color: 'black',
@@ -38,20 +38,20 @@ function categories_DenverFLU(feature){
 
     switch (value.toString()) {
         case 'SUBURBAN':
-            return colors(CC);
+            return color(CC);
         case 'URBAN':
-            return colors(LDC);
+            return color(LDC);
         case 'Arvada':
-            return colors(VBC);
+            return color(VBC);
         case 'URBAN CENTER':
-            return colors(HL);
+            return color(HL);
         case 'Commerce City':
-            return  colors(R);
+            return  color(R);
         case 'Thornton':
             return colors(BG);
-        case 'Bro':
+        case '':
             return colors(FHL);
-        case 'Powhaton South':
+        case '':
             return colors(LC);
         case 'Riverwood':
             return colors(MG);

@@ -14,9 +14,10 @@ var mhfd_watersheds='firstcreekMDP:Watershed_Traced'
 var comments='firstcreekMDP:comment_comment'
 var city_limits='firstcreekMDP:Municipalities'
 var dflu = 'firstcreekMDP:Denver_FLU'
-var ccflu = 'firstcreekMDP:CommerceC_FLUClip'
+var ccflu = 'firstcreekMDP:CC_Full'
 var aurflu = 'firstcreekMDP:Aurora_FLU'
 var adaflu = 'firstcreekMDP:AdamsCo_FLU'
+//var dflu='firstcreekMDP:CommerceC_FLUClip'
 
 
 
@@ -238,7 +239,7 @@ lyr_ArvadaBoundary_0.on('precompose', function(evt) {
 });
 
 ////////////////////////////////////////////
-//Denver FLU
+//Future Land Use
 //////////////////////////////////////////
 var jsonSource_County = new ol.source.Vector({
     attributions: '<a href=""></a>',
@@ -257,7 +258,7 @@ var lyr_County = new ol.layer.Vector({
 
 });
 
-lyr_County.setVisible(true)
+lyr_County.setVisible(false)
 lyr_County.set('fieldAliases', {
     'county': 'County',
 });
@@ -1330,6 +1331,7 @@ var group_Hydrolo = new ol.layer.Group({
 
 var layersList = [  lyr_GoogleTerrain_0, lyr_GoogleHybrid_1,
                       lyr_ArvadaBoundary_0,
+		      lyr_County,
                       lyr_arvada_swmpcreeks_4,
                  //   group_sw_irrigation, group_sw,
                 //    lyr_mp_picture,
@@ -1339,11 +1341,10 @@ var layersList = [  lyr_GoogleTerrain_0, lyr_GoogleHybrid_1,
                     //lyr_arvada_designPoint_0,
                     lyr_AURORAFLU,        
                     lyr_ADAMSFLU,
-//                    lyr_CCFLU,
+                    lyr_CCFLU,
                     lyr_DenverFLU,
                     lyr_SubBasins,
 		    lyr_irr_ditch,
-		    lyr_County,
 		    lyr_MajorWatersheds_0,
                 //    lyr_irr_gravity_main,
                     lyr_mp_comment];

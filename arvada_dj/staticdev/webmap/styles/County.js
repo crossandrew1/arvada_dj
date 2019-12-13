@@ -30,7 +30,7 @@ function categories_County(feature){
     var FHL = 'rgba(145,245,229,' + trans + ')'
     var C = 'rgba(145,245,229,' + trans + ')'
     var VBC = 'rgba(10,102,94,' + trans + ')'
-    var CC = 'rgba(100,160,148,' + trans + ')'
+    var CC = 'rgba(0,255,0,' + trans + ')'
 
     if (feature.get("county") !== null ) {
         var value = String(feature.get("county"));
@@ -41,7 +41,7 @@ function categories_County(feature){
             return colors(CC);
         case 'Arapahoe':
             return colors(LDC);
-        case 'Arvada':
+        case 'Denver':
             return colors(VBC);
         case 'URBAN CENTER':
             return colors(HL);
