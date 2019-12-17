@@ -14,7 +14,7 @@ var mhfd_watersheds='firstcreekMDP:Watershed_Traced'
 var comments='firstcreekMDP:comment_comment'
 var city_limits='firstcreekMDP:Municipalities'
 var dflu = 'firstcreekMDP:Denver_FLU'
-var ccflu = 'firstcreekMDP:CC_na'
+var ccflu = 'firstcreekMDP:CC_Imperv2'
 var aurflu = 'firstcreekMDP:Aurora_FLU'
 var adaflu = 'firstcreekMDP:AdamsCo_FLU'
 //var dflu='firstcreekMDP:CommerceC_FLUClip'
@@ -384,13 +384,13 @@ var lyr_CCFLU = new ol.layer.Vector({
 
 lyr_CCFLU.setVisible(false)
 lyr_CCFLU.set('fieldAliases', {
-    'zoning_cod': 'Future Land Use',
+    'zoning_cod': 'Future Land Use','landuse_% impervious_1':'Percent Impervious',
 });
 lyr_CCFLU.set('fieldImages', {
-    'zoning_cod': 'TextEdit',
+    'zoning_cod': 'TextEdit','landuse_% impervious_1':'TextEdit'
 });
 lyr_CCFLU.set('fieldLabels', {
-    'zoning_cod': 'inline label',
+    'zoning_cod': 'inline label','landuse_% impervious_1':'inline label',
 });
 lyr_CCFLU.on('precompose', function(evt) {
     evt.context.globalCompositeOperation = 'normal';

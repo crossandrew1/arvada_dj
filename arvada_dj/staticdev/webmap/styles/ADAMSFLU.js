@@ -20,9 +20,9 @@ function categories_ADAMSFLU(feature){
     }
 
     var trans = '0.30';
-    var UDC = 'rgba(84,48,5,' + trans + ')'
+    var UDC = 'rgba(217,232,8,' + trans + ')'
     var BG = 'rgba(14,0,10,' + trans + ')'
-    var LC = 'rgba(191,129,45,' + trans + ')'
+    var LC = 'rgba(250,0,0,.7)'
     var LDC = 'rgba(223,194,125,' + trans + ')'
     var MG = 'rgba(0,132,195,' + trans + ')'
     var R = 'rgba(145,245,229,' + trans + ')'
