@@ -1,14 +1,14 @@
 .cc_logo{
     width: 100px;
     position: absolute;
-    left:87px;
+    left:35px;
     bottom:15px;
     pointer-events: none;
 }
 .respec_logo{
     width: 30px;
     position: absolute;
-    left:45px;
+    left:140px;
     bottom:15px;
     pointer-events: none;
 }
