@@ -1,8 +1,8 @@
 .cc_logo{
     width: 120px;
     position: absolute;
-    left:15px;
-    bottom:90px;
+    left:65px;
+    bottom:15px;
     pointer-events: none;
 }
 .respec_logo{
@@ -11,4 +11,11 @@
 	left:35px;
 	bottom:15px;
     pointer-events: none;
+}
+.mhfd_logo{
+	width: 30px;
+	position: absolute;
+	left:15px
+	bottom: 90px
+	pointer-events:none;
 }
