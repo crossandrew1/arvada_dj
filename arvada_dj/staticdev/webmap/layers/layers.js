@@ -17,6 +17,7 @@ var dflu = 'firstcreekMDP:Denver_FLU'
 var ccflu = 'firstcreekMDP:CC_Imperv2'
 var aurflu = 'firstcreekMDP:Aurora_FLU'
 var adaflu = 'firstcreekMDP:AdamsCo_FLU'
+var arap='firstcreekMDP:Arapahoe'
 //var dflu='firstcreekMDP:CommerceC_FLUClip'
 
 
@@ -316,7 +317,7 @@ var lyr_ADAMSFLU = new ol.layer.Vector({
     declutter: true,
     source: jsonSource_ADAMSFLU,
     style: style_ADAMSFLU,
-    title: 'Adams CO FLU'
+    title: 'Adams County FLU'
 
 });
 
@@ -333,6 +334,37 @@ lyr_ADAMSFLU.set('fieldLabels', {
 lyr_ADAMSFLU.on('precompose', function(evt) {
     evt.context.globalCompositeOperation = 'normal';
 });
+var jsonSource_ARAPAHOE = new ol.source.Vector({
+    attributions: '<a href=""></a>',
+    format: new ol.format.GeoJSON(),
+    url: function(extent) {
+        return website+arap+website_end
+        },
+    crossOrigin: 'anonymous',
+});
+
+var lyr_ARAPAHOE = new ol.layer.Vector({
+    declutter: true,
+    source: jsonSource_ARAPAHOE,
+    style: style_ARAPAHOE,
+    title: 'Arapahoe County FLU'
+
+});
+
+lyr_ARAPAHOE.setVisible(false)
+lyr_ARAPAHOE.set('fieldAliases', {
+    'catagory': 'Future Land Use',
+});
+lyr_ARAPAHOE.set('fieldImages', {
+    'catagory': 'TextEdit',
+});
+lyr_ARAPAHOE.set('fieldLabels', {
+    'catagory': 'inline label',
+});
+lyr_ARAPAHOE.on('precompose', function(evt) {
+    evt.context.globalCompositeOperation = 'normal';
+});
+
 
 var jsonSource_AURORAFLU_0 = new ol.source.Vector({
     attributions: '<a href=""></a>',
@@ -467,7 +499,7 @@ var lyr_irr_ditch = new ol.layer.Vector({
     source: jsonSource_irr_ditch,
     //style: style_irr_ditch,
     style: style_irr_ditch,
-    title: '<img src="/static/webmap/styles/legend/irr_gravity_main.png"> Subcatchments (Moser)'
+    title: '<img src="/static/webmap/styles/legend/irr_gravity_main.png"> Subcatchments'
 });
 
 lyr_irr_ditch.set('fieldAliases', {
@@ -1339,7 +1371,8 @@ var layersList = [  lyr_GoogleTerrain_0, lyr_GoogleHybrid_1,
                    // lyr_draft_Flow_Paths_0,lyr_arvada_OutfallToCentroid,
 //                    lyr_MajorOutfallBasins_0,
                     //lyr_arvada_designPoint_0,
-                    lyr_AURORAFLU,        
+                    lyr_ARAPAHOE,
+		    lyr_AURORAFLU,        
                     lyr_ADAMSFLU,
                     lyr_CCFLU,
                     lyr_DenverFLU,

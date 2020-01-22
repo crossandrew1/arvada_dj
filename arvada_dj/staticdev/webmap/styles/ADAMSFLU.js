@@ -21,8 +21,8 @@ function categories_ADAMSFLU(feature){
 
     var trans = '0.30';
     var UDC = 'rgba(217,232,8,' + trans + ')'
-    var BG = 'rgba(14,0,10,' + trans + ')'
-    var LC = 'rgba(250,0,0,.7)'
+    var BG = 'rgba(255,0,0,' + trans + ')'
+    var LC = 'rgba(250,0,50,.1)'
     var LDC = 'rgba(223,194,125,' + trans + ')'
     var MG = 'rgba(0,132,195,' + trans + ')'
     var R = 'rgba(145,245,229,' + trans + ')'
@@ -56,7 +56,7 @@ function categories_ADAMSFLU(feature){
             return colors(BG);
         case 'Mixed Use/Employment':
             return colors(FHL);
-        case 'Municipal Area':
+        case 'Municia':
             return colors(LC);
         case 'Parks and Open Space':
             return colors(MG);

@@ -603,9 +603,9 @@ if (!superMap) {
      <p> Welcome to the First Creek Major Drainage Plan website. 
      Data can be turned on or off by toggling the gray boxes in the legend off to the right. Comments can 
     made by clicking on the message icon to the left and then clicking on the map.</p>
-    <h4> Commerce City Impervious Values</h4>
-    <p> The values shown on the Commerce City FLU layer represent percent impervious as determined from the MHFD
-	guidelines and the data provided by Commerce City. Any questions or comments regarding percent impervious
+    <h4> Impervious Values</h4>
+    <p> The values shown on the Future Land Use layers represent percent impervious as determined from the MHFD
+	guidelines and the data provided by the respective stakeholders. Any questions or comments regarding percent impervious
 	can be relayed to the RESPEC team by using the comments feature provided on the website.</p>  
     <h4>Thank you,</h4> 
     <h4>Your RESPEC Team</h4> `

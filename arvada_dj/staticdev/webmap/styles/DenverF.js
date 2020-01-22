@@ -1,13 +1,13 @@
 var size = 0;
 var placement = 'point';
 
-function categories_CCFLU(feature, value, size, resolution, labelText,
+function categories_DenverFLU(feature, value, size, resolution, labelText,
     labelFont, labelFill, bufferColor, bufferWidth,
     placement) {
     // Transparency for fill
     var trans = '0.3';
     switch (value.toString()) {
-        case 'COMMERCIAL: 75%':
+        case 'URBAN Low:20%':
             var style = [new ol.style.Style({
                 stroke: new ol.style.Stroke({
                     color: 'rgba(35,35,35,1.0)',
@@ -26,7 +26,7 @@ function categories_CCFLU(feature, value, size, resolution, labelText,
             //console.log('clear creek', style);
             return style;
             break;
-        case 'DIA RESERVE: 85%':
+        case 'URBAN Other Park and Open Space:10%':
             return [new ol.style.Style({
                 stroke: new ol.style.Stroke({
                     color: 'rgba(35,35,35,1.0)',
@@ -43,7 +43,7 @@ function categories_CCFLU(feature, value, size, resolution, labelText,
                     bufferWidth)
             })];
             break;
-        case 'DIA TECHNOLOGY: 85%':
+        case 'SUBURBAN Low:20%':
             return [new ol.style.Style({
                 stroke: new ol.style.Stroke({
                     color: 'rgba(35,35,35,1.0)',
@@ -60,7 +60,7 @@ function categories_CCFLU(feature, value, size, resolution, labelText,
                     bufferWidth)
             })];
             break;
-        case 'GENERAL INDUSTRIAL: 80%':
+        case 'SUBURBAN Community Corridor:75%':
             return [new ol.style.Style({
                 stroke: new ol.style.Stroke({
                     color: 'rgba(35,35,35,1.0)',
@@ -77,7 +77,7 @@ function categories_CCFLU(feature, value, size, resolution, labelText,
                     bufferWidth)
             })];
             break;
-        case 'INDUSTRIAL / DISTRIBUTION: 85%':
+        case 'SUBURBAN Regional Center:75%':
             return [new ol.style.Style({
                 stroke: new ol.style.Stroke({
                     color: 'rgba(35,35,35,1.0)',
@@ -94,7 +94,7 @@ function categories_CCFLU(feature, value, size, resolution, labelText,
                     bufferWidth)
             })];
             break;
-        case 'MIXED USE: 75%':
+        case 'SUBURBAN Low-Medium:30%':
             return [new ol.style.Style({
                stroke: new ol.style.Stroke({
                    color: 'rgba(35,35,35,1.0)',
@@ -111,7 +111,7 @@ function categories_CCFLU(feature, value, size, resolution, labelText,
                     bufferWidth)
             })];
             break;
-        case 'MIXED USE E-470: 75%':
+        case 'SPECIAL DISTRICT Campus:55%':
             return [new ol.style.Style({
                 stroke: new ol.style.Stroke({
                     color: 'rgba(35,35,35,1.0)',
@@ -128,7 +128,7 @@ function categories_CCFLU(feature, value, size, resolution, labelText,
                     bufferWidth)
             })];
             break;
-       case 'OFFICE: 75%':
+       case 'SUBURBAN Public Park and Open Space:10%':
             return [new ol.style.Style({
                 stroke: new ol.style.Stroke({
                     color: 'rgba(35,35,35,1.0)',
@@ -146,7 +146,7 @@ function categories_CCFLU(feature, value, size, resolution, labelText,
             })];
             break;
 
-       case 'OPEN SPACE: 2%':
+       case 'URBAN CENTER Regional Center:75%':
             return [new ol.style.Style({
                 stroke: new ol.style.Stroke({
                     color: 'rgba(35,35,35,1.0)',
@@ -163,7 +163,7 @@ function categories_CCFLU(feature, value, size, resolution, labelText,
                     bufferWidth)
             })];
             break;
-       case 'PARK: 10%':
+       case 'SPECIAL DISTRICT Airport:85%':
             return [new ol.style.Style({
                 stroke: new ol.style.Stroke({
                     color: 'rgba(35,35,35,1.0)',
@@ -180,7 +180,7 @@ function categories_CCFLU(feature, value, size, resolution, labelText,
                     bufferWidth)
             })];
             break;
-       case 'PUBLIC: 55%':
+       case 'SUBURBAN Other Park and Open Space:10%':
             return [new ol.style.Style({
                 stroke: new ol.style.Stroke({
                     color: 'rgba(35,35,35,1.0)',
@@ -197,7 +197,7 @@ function categories_CCFLU(feature, value, size, resolution, labelText,
                     bufferWidth)
             })];
             break;
-       case 'RESIDENTIAL HIGH: 75%':
+       case 'SUBURBAN Local Center:80%':
             return [new ol.style.Style({
                 stroke: new ol.style.Stroke({
                     color: 'rgba(35,35,35,1.0)',
@@ -214,7 +214,7 @@ function categories_CCFLU(feature, value, size, resolution, labelText,
                     bufferWidth)
             })];
             break;
-       case 'RESIDENTIAL LOW: 20%':
+       case 'SUBURBAN Public Park and Open Space:10%':
             return [new ol.style.Style({
                 stroke: new ol.style.Stroke({
                     color: 'rgba(35,35,35,1.0)',
@@ -231,7 +231,7 @@ function categories_CCFLU(feature, value, size, resolution, labelText,
                     bufferWidth)
             })];
 	break;
-       case 'RESIDENTIAL MEDIUM: 30%':
+       case 'URBAN CENTER Community Center:75%':
             return [new ol.style.Style({
                 stroke: new ol.style.Stroke({
                     color: 'rgba(35,35,35,1.0)',
@@ -241,14 +241,14 @@ function categories_CCFLU(feature, value, size, resolution, labelText,
                     width: 0
                 }),
                 fill: new ol.style.Fill({
-                    color: 'rgba(15,238,67,' + trans + ')'
+                    color: 'rgba(5,38,7,' + trans + ')'
                 }),
                 text: createTextStyle(feature, resolution, labelText, labelFont,
                     labelFill, placement, bufferColor,
                     bufferWidth)
             })];
             break;
-         case 'UTILITY: 45%':
+         case 'SUBURBAN High-Medium:45%':
             return [new ol.style.Style({
                 stroke: new ol.style.Stroke({
                     color: 'rgba(35,35,35,1.0)',
@@ -258,14 +258,14 @@ function categories_CCFLU(feature, value, size, resolution, labelText,
                     width: 0
                 }),
                 fill: new ol.style.Fill({
-                    color: 'rgba(15,238,67,' + trans + ')'
+                    color: 'rgba(151,2,0,' + trans + ')'
                 }),
                 text: createTextStyle(feature, resolution, labelText, labelFont,
                     labelFill, placement, bufferColor,
                     bufferWidth)
             })];
             break;
-           case 'TH':
+           case 'SUBURBAN Local Center:75%':
             return [new ol.style.Style({
                 stroke: new ol.style.Stroke({
                     color: 'rgba(35,35,35,1.0)',
@@ -275,7 +275,143 @@ function categories_CCFLU(feature, value, size, resolution, labelText,
                     width: 0
                 }),
                 fill: new ol.style.Fill({
-                    color: 'rgba(15,238,67,' + trans + ')'
+                    color: 'rgba(151,138,167,' + trans + ')'
+                }),
+                text: createTextStyle(feature, resolution, labelText, labelFont,
+                    labelFill, placement, bufferColor,
+                    bufferWidth)
+            })];
+            break;
+      case 'SUBURBAN Low:20%':
+            return [new ol.style.Style({
+                stroke: new ol.style.Stroke({
+                    color: 'rgba(35,35,35,1.0)',
+                    lineDash: null,
+                    lineCap: 'butt',
+                    lineJoin: 'miter',
+                    width: 0
+                }),
+                fill: new ol.style.Fill({
+                    color: 'rgba(115,28,117,' + trans + ')'
+                }),
+                text: createTextStyle(feature, resolution, labelText, labelFont,
+                    labelFill, placement, bufferColor,
+                    bufferWidth)
+            })];
+            break;
+      case 'SUBURBAN Low-Medium:30%':
+            return [new ol.style.Style({
+                stroke: new ol.style.Stroke({
+                    color: 'rgba(35,35,35,1.0)',
+                    lineDash: null,
+                    lineCap: 'butt',
+                    lineJoin: 'miter',
+                    width: 0
+                }),
+                fill: new ol.style.Fill({
+                    color: 'rgba(150,18,17,' + trans + ')'
+                }),
+                text: createTextStyle(feature, resolution, labelText, labelFont,
+                    labelFill, placement, bufferColor,
+                    bufferWidth)
+            })];
+            break;
+      case 'SPECIAL DISTRICT Other Park and Open Space:10%':
+            return [new ol.style.Style({
+                stroke: new ol.style.Stroke({
+                    color: 'rgba(35,35,35,1.0)',
+                    lineDash: null,
+                    lineCap: 'butt',
+                    lineJoin: 'miter',
+                    width: 0
+                }),
+                fill: new ol.style.Fill({
+                    color: 'rgba(15,18,17,' + trans + ')'
+                }),
+                text: createTextStyle(feature, resolution, labelText, labelFont,
+                    labelFill, placement, bufferColor,
+                    bufferWidth)
+            })];
+            break;
+      case 'SPECIAL DISTRICT Regional Park:10%':
+            return [new ol.style.Style({
+                stroke: new ol.style.Stroke({
+                    color: 'rgba(35,35,35,1.0)',
+                    lineDash: null,
+                    lineCap: 'butt',
+                    lineJoin: 'miter',
+                    width: 0
+                }),
+                fill: new ol.style.Fill({
+                    color: 'rgba(154,24,267,' + trans + ')'
+                }),
+                text: createTextStyle(feature, resolution, labelText, labelFont,
+                    labelFill, placement, bufferColor,
+                    bufferWidth)
+            })];
+            break;
+      case 'SPECIAL DISTRICT Regional Center:75%':
+            return [new ol.style.Style({
+                stroke: new ol.style.Stroke({
+                    color: 'rgba(35,35,35,1.0)',
+                    lineDash: null,
+                    lineCap: 'butt',
+                    lineJoin: 'miter',
+                    width: 0
+                }),
+                fill: new ol.style.Fill({
+                    color: 'rgba(55,38,267,' + trans + ')'
+                }),
+                text: createTextStyle(feature, resolution, labelText, labelFont,
+                    labelFill, placement, bufferColor,
+                    bufferWidth)
+            })];
+            break;
+      case 'SPECIAL DISTRICT Community Corridor:75%':
+            return [new ol.style.Style({
+                stroke: new ol.style.Stroke({
+                    color: 'rgba(35,35,35,1.0)',
+                    lineDash: null,
+                    lineCap: 'butt',
+                    lineJoin: 'miter',
+                    width: 0
+                }),
+                fill: new ol.style.Fill({
+                    color: 'rgba(215,238,267,' + trans + ')'
+                }),
+                text: createTextStyle(feature, resolution, labelText, labelFont,
+                    labelFill, placement, bufferColor,
+                    bufferWidth)
+            })];
+            break;
+      case 'SPECIAL DISTRICT Community Center:75%':
+            return [new ol.style.Style({
+                stroke: new ol.style.Stroke({
+                    color: 'rgba(35,35,35,1.0)',
+                    lineDash: null,
+                    lineCap: 'butt',
+                    lineJoin: 'miter',
+                    width: 0
+                }),
+                fill: new ol.style.Fill({
+                    color: 'rgba(105,138,67,' + trans + ')'
+                }),
+                text: createTextStyle(feature, resolution, labelText, labelFont,
+                    labelFill, placement, bufferColor,
+                    bufferWidth)
+            })];
+            break;
+      case 'URBAN Public Park and Open Space:10%':
+            return [new ol.style.Style({
+                stroke: new ol.style.Stroke({
+                    color: 'rgba(35,35,35,1.0)',
+                    lineDash: null,
+                    lineCap: 'butt',
+                    lineJoin: 'miter',
+                    width: 0
+                }),
+                fill: new ol.style.Fill({
+                    color: 'rgba(150,38,167,' + trans + ')'
                 }),
                 text: createTextStyle(feature, resolution, labelText, labelFont,
                     labelFill, placement, bufferColor,
@@ -283,6 +419,7 @@ function categories_CCFLU(feature, value, size, resolution, labelText,
             })];
             break;
  
+
 
 
 
@@ -312,12 +449,12 @@ function categories_CCFLU(feature, value, size, resolution, labelText,
     }
 };
 
-var style_CCFLU = function(feature, resolution) {
+var style_DenverFLU = function(feature, resolution) {
     var context = {
         feature: feature,
         variables: {}
     };
-    var value = feature.get('ccc_flucategories_20200120_web_comb');
+    var value = feature.get('denver_imp');
     var labelText = "";
     size = 0;
     var labelFont = "18.0px \'MS Shell Dlg 2\', sans-serif";
@@ -328,11 +465,11 @@ var style_CCFLU = function(feature, resolution) {
     var offsetX = 0;
     var offsetY = 0;
     var placement = 'point';
-    if (feature.get('ccc_flucategories_20200120_web_comb') !== null) {
-        labelText = String(feature.get('ccc_flucategories_20200120_web_comb'));
+    if (feature.get('denver_imp') !== null) {
+        labelText = String(feature.get('denver_imp'));
     }
 
-    var style = categories_CCFLU(feature, value, size, resolution, labelText,
+    var style = categories_DenverFLU(feature, value, size, resolution, labelText,
         labelFont, labelFill, bufferColor,
         bufferWidth, placement);
 

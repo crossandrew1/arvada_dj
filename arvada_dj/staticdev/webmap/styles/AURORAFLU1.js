@@ -1,13 +1,13 @@
 var size = 0;
 var placement = 'point';
 
-function categories_CCFLU(feature, value, size, resolution, labelText,
+function categories_AURORAFLU(feature, value, size, resolution, labelText,
     labelFont, labelFill, bufferColor, bufferWidth,
     placement) {
     // Transparency for fill
     var trans = '0.3';
     switch (value.toString()) {
-        case 'COMMERCIAL: 75%':
+        case 'Innovation Campus: 55%':
             var style = [new ol.style.Style({
                 stroke: new ol.style.Stroke({
                     color: 'rgba(35,35,35,1.0)',
@@ -26,7 +26,7 @@ function categories_CCFLU(feature, value, size, resolution, labelText,
             //console.log('clear creek', style);
             return style;
             break;
-        case 'DIA RESERVE: 85%':
+        case 'Established Neighborhood: 30%':
             return [new ol.style.Style({
                 stroke: new ol.style.Stroke({
                     color: 'rgba(35,35,35,1.0)',
@@ -43,7 +43,7 @@ function categories_CCFLU(feature, value, size, resolution, labelText,
                     bufferWidth)
             })];
             break;
-        case 'DIA TECHNOLOGY: 85%':
+        case 'Industrial Hub: 95%':
             return [new ol.style.Style({
                 stroke: new ol.style.Stroke({
                     color: 'rgba(35,35,35,1.0)',
@@ -60,7 +60,7 @@ function categories_CCFLU(feature, value, size, resolution, labelText,
                     bufferWidth)
             })];
             break;
-        case 'GENERAL INDUSTRIAL: 80%':
+        case 'Urban Center: 95%':
             return [new ol.style.Style({
                 stroke: new ol.style.Stroke({
                     color: 'rgba(35,35,35,1.0)',
@@ -77,7 +77,7 @@ function categories_CCFLU(feature, value, size, resolution, labelText,
                     bufferWidth)
             })];
             break;
-        case 'INDUSTRIAL / DISTRIBUTION: 85%':
+        case 'Emerging Neighborhood: 30%':
             return [new ol.style.Style({
                 stroke: new ol.style.Stroke({
                     color: 'rgba(35,35,35,1.0)',
@@ -94,7 +94,7 @@ function categories_CCFLU(feature, value, size, resolution, labelText,
                     bufferWidth)
             })];
             break;
-        case 'MIXED USE: 75%':
+        case 'City Corridor: 80%':
             return [new ol.style.Style({
                stroke: new ol.style.Stroke({
                    color: 'rgba(35,35,35,1.0)',
@@ -111,7 +111,7 @@ function categories_CCFLU(feature, value, size, resolution, labelText,
                     bufferWidth)
             })];
             break;
-        case 'MIXED USE E-470: 75%':
+        case 'Commercial Hub: 90%':
             return [new ol.style.Style({
                 stroke: new ol.style.Stroke({
                     color: 'rgba(35,35,35,1.0)',
@@ -128,7 +128,7 @@ function categories_CCFLU(feature, value, size, resolution, labelText,
                     bufferWidth)
             })];
             break;
-       case 'OFFICE: 75%':
+       case 'Urban Green Space: 10%':
             return [new ol.style.Style({
                 stroke: new ol.style.Stroke({
                     color: 'rgba(35,35,35,1.0)',
@@ -146,7 +146,7 @@ function categories_CCFLU(feature, value, size, resolution, labelText,
             })];
             break;
 
-       case 'OPEN SPACE: 2%':
+       case 'C-1:75%':
             return [new ol.style.Style({
                 stroke: new ol.style.Stroke({
                     color: 'rgba(35,35,35,1.0)',
@@ -163,7 +163,7 @@ function categories_CCFLU(feature, value, size, resolution, labelText,
                     bufferWidth)
             })];
             break;
-       case 'PARK: 10%':
+       case 'C-2:85%':
             return [new ol.style.Style({
                 stroke: new ol.style.Stroke({
                     color: 'rgba(35,35,35,1.0)',
@@ -180,7 +180,7 @@ function categories_CCFLU(feature, value, size, resolution, labelText,
                     bufferWidth)
             })];
             break;
-       case 'PUBLIC: 55%':
+       case 'C-3:95%':
             return [new ol.style.Style({
                 stroke: new ol.style.Stroke({
                     color: 'rgba(35,35,35,1.0)',
@@ -197,7 +197,7 @@ function categories_CCFLU(feature, value, size, resolution, labelText,
                     bufferWidth)
             })];
             break;
-       case 'RESIDENTIAL HIGH: 75%':
+       case 'PUD:30%':
             return [new ol.style.Style({
                 stroke: new ol.style.Stroke({
                     color: 'rgba(35,35,35,1.0)',
@@ -214,7 +214,7 @@ function categories_CCFLU(feature, value, size, resolution, labelText,
                     bufferWidth)
             })];
             break;
-       case 'RESIDENTIAL LOW: 20%':
+       case 'TB':
             return [new ol.style.Style({
                 stroke: new ol.style.Stroke({
                     color: 'rgba(35,35,35,1.0)',
@@ -231,7 +231,7 @@ function categories_CCFLU(feature, value, size, resolution, labelText,
                     bufferWidth)
             })];
 	break;
-       case 'RESIDENTIAL MEDIUM: 30%':
+       case 'N':
             return [new ol.style.Style({
                 stroke: new ol.style.Stroke({
                     color: 'rgba(35,35,35,1.0)',
@@ -248,7 +248,7 @@ function categories_CCFLU(feature, value, size, resolution, labelText,
                     bufferWidth)
             })];
             break;
-         case 'UTILITY: 45%':
+         case 'RO':
             return [new ol.style.Style({
                 stroke: new ol.style.Stroke({
                     color: 'rgba(35,35,35,1.0)',
@@ -312,12 +312,12 @@ function categories_CCFLU(feature, value, size, resolution, labelText,
     }
 };
 
-var style_CCFLU = function(feature, resolution) {
+var style_AURORAFLU = function(feature, resolution) {
     var context = {
         feature: feature,
         variables: {}
     };
-    var value = feature.get('ccc_flucategories_20200120_web_comb');
+    var value = feature.get('aurora_% impervious');
     var labelText = "";
     size = 0;
     var labelFont = "18.0px \'MS Shell Dlg 2\', sans-serif";
@@ -328,11 +328,11 @@ var style_CCFLU = function(feature, resolution) {
     var offsetX = 0;
     var offsetY = 0;
     var placement = 'point';
-    if (feature.get('ccc_flucategories_20200120_web_comb') !== null) {
-        labelText = String(feature.get('ccc_flucategories_20200120_web_comb'));
+    if (feature.get('aurora_% impervious') !== null) {
+        labelText = String(feature.get('aurora_% impervious'));
     }
 
-    var style = categories_CCFLU(feature, value, size, resolution, labelText,
+    var style = categories_AURORAFLU(feature, value, size, resolution, labelText,
         labelFont, labelFill, bufferColor,
         bufferWidth, placement);
 
