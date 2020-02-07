@@ -11,7 +11,7 @@ var county ='firstcreekMDP:county'
 var merrick='firstcreekMDP:Merrick'
 var streams='firstcreekMDP:Streams_Traced'
 var subcatchments='firstcreekMDP:moser_subwatershed'
-var mhfd_watersheds='firstcreekMDP:Wateshed'
+var mhfd_watersheds='firstcreekMDP:Watesheds'
 var comments='firstcreekMDP:comment_comment'
 var city_limits='firstcreekMDP:Municipalities'
 var dflu = 'firstcreekMDP:Denver_FLU'
@@ -921,7 +921,7 @@ lyr_SubBasins.on('precompose', function(evt) {
 //////////////////////////////////////////////
 // Major Collection Basins
 /////////////////////////////////////////////
-
+/*
 var jsonSource_MajorOutfallBasins_0 = new ol.source.Vector({
     attributions: '<a href=""></a>',
     format: new ol.format.GeoJSON(),
@@ -949,6 +949,7 @@ lyr_MajorOutfallBasins_0.set('fieldLabels', {
 lyr_MajorOutfallBasins_0.on('precompose', function(evt) {
     evt.context.globalCompositeOperation = 'normal';
 });
+*/
 //////////////////////////////////////////////
 // SubBasins
 /////////////////////////////////////////////
@@ -1391,7 +1392,7 @@ var group_sw_irrigation = new ol.layer.Group({
 var group_Hydrolo = new ol.layer.Group({
     layers:[
                 lyr_draft_Flow_Paths_0,
-                lyr_MajorOutfallBasins_0,
+      //          lyr_MajorOutfallBasins_0,
             //    lyr_SubBasins_0,
                 lyr_arvada_OutfallToCentroid,
                 lyr_arvada_designPoint_0],
