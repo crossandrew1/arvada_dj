@@ -6,11 +6,12 @@ https://riverproject.co:8443/geoserver/arvada_swmp/wfs?service=WFS&version=1.1.0
 var website = 'https://firstcreekmdp.com:8443/geoserver/firstcreekMDP/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName='
 var website_end='&outputFormat=application/json&srsname=EPSG:3857'
 
+var NNH ='firstcreekMDP:New_Neighborhoods'
 var county ='firstcreekMDP:county'
 var merrick='firstcreekMDP:Merrick'
 var streams='firstcreekMDP:Streams_Traced'
 var subcatchments='firstcreekMDP:moser_subwatershed'
-var mhfd_watersheds='firstcreekMDP:Watershed_Traced'
+var mhfd_watersheds='firstcreekMDP:Wateshed'
 var comments='firstcreekMDP:comment_comment'
 var city_limits='firstcreekMDP:Municipalities'
 var dflu = 'firstcreekMDP:Denver_FLU'
@@ -238,6 +239,41 @@ lyr_ArvadaBoundary_0.set('fieldLabels', {
 lyr_ArvadaBoundary_0.on('precompose', function(evt) {
     evt.context.globalCompositeOperation = 'normal';
 });
+
+
+var jsonSource_NNH = new ol.source.Vector({
+    attributions: '<a href=""></a>',
+    format: new ol.format.GeoJSON(),
+    url: function(extent) {
+        return website+NNH+website_end
+        },
+    crossOrigin: 'anonymous',
+});
+
+var lyr_NNH = new ol.layer.Vector({
+    declutter: true,
+    source: jsonSource_NNH,
+    style: style_NNH,
+    title: 'New Development'
+
+});
+
+lyr_NNH.setVisible(false);
+lyr_NNH.set('fieldAliases', {
+    'neighborho': 'Neighborhood','imp':'Percent Impervious',
+});
+lyr_NNH.set('fieldImages', {
+    'neighborho': 'TextEdit','imp':'TextEdit',
+});
+lyr_NNH.set('fieldLabels', {
+    'neighborho': 'inline label','imp':'inline label',
+});
+lyr_ArvadaBoundary_0.on('precompose', function(evt) {
+    evt.context.globalCompositeOperation = 'normal';
+});
+
+
+
 
 ////////////////////////////////////////////
 //Future Land Use
@@ -885,6 +921,7 @@ lyr_SubBasins.on('precompose', function(evt) {
 //////////////////////////////////////////////
 // Major Collection Basins
 /////////////////////////////////////////////
+
 var jsonSource_MajorOutfallBasins_0 = new ol.source.Vector({
     attributions: '<a href=""></a>',
     format: new ol.format.GeoJSON(),
@@ -988,13 +1025,13 @@ var lyr_MajorWatersheds_0 = new ol.layer.Vector({
 });
 
 lyr_MajorWatersheds_0.set('fieldAliases', {
-    'basin': 'Watershed',
+    'watershed_': 'Watershed',
 });
 lyr_MajorWatersheds_0.set('fieldImages', {
-    'basin': 'TextEdit',
+    'watershed_': 'TextEdit',
 });
 lyr_MajorWatersheds_0.set('fieldLabels', {
-    'basin': 'header label',
+    'watershed_': 'header label',
 });
 lyr_MajorWatersheds_0.on('precompose', function(evt) {
     evt.context.globalCompositeOperation = 'normal';
@@ -1380,6 +1417,7 @@ var layersList = [  lyr_GoogleTerrain_0, lyr_GoogleHybrid_1,
 		    lyr_irr_ditch,
 		    lyr_MajorWatersheds_0,
                 //    lyr_irr_gravity_main,
-                    lyr_mp_comment];
+                    lyr_mp_comment,
+		    lyr_NNH];
                    // lyr_mp_question,
                    // lyr_mp_assumption];
