@@ -153,7 +153,7 @@ var style_MajorWatersheds_0 = function(feature, resolution) {
         feature: feature,
         variables: {}
     };
-    var value = feature.get('basin');
+    var value = feature.get('watershed_');
     var labelText = "";
     size = 0;
     var labelFont = "20.0px \'MS Shell Dlg 2\', sans-serif";
@@ -164,8 +164,8 @@ var style_MajorWatersheds_0 = function(feature, resolution) {
     var offsetX = 0;
     var offsetY = 0;
     var placement = 'point';
-    if (feature.get('basin') !== null) {
-        labelText = String(feature.get('basin'));
+    if (feature.get('watershed_') !== null) {
+        labelText = String(feature.get('watershed_'));
     }
 
     var style = categories_MajorWatersheds_0(feature, value, size, resolution, labelText,
